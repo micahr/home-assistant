@@ -1,13 +1,15 @@
+.*
 *.pid
 *.xml
 *.csr
 *.crt
 *.key
 *.conf
-OZW_Log.txt
+*.json
 *.log
-home-assistant_v2.db
 *.db-journal
+OZW_Log.txt
+home-assistant_v2.db
 lib
 deps
 tts
@@ -15,5 +17,5 @@ secrets.yaml
 known_devices.yaml
 pyozw.sqlite
 ip_bans.yaml
-.*
 !/.gitignore
+all_requirements.txt

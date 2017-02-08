@@ -14,21 +14,13 @@ homeassistant:
 # Enables the frontend
 frontend:
 http:
-  # Uncomment this to add a password (recommended!)
   api_password: !secret api_password
-# Checks for available updates
 updater:
-# Discover some devices automatically
 discovery:
-# Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
-# Enables support for tracking state changes over time.
 history:
-# View all events in a logbook
 logbook:
-# Track the sun
 sun:
-# Text to speech
 tts:
   platform: google
 nest:
@@ -36,42 +28,29 @@ nest:
   client_secret: !secret nest_client_secret
 emulated_hue:
   type: alexa
-  host_ip: 192.168.1.104
-sensor:
-  - platform: darksky
-    api_key: !secret dark_sky
-    monitored_conditions:
-      - summary
-      - icon
-      - nearest_storm_distance
-      - nearest_storm_bearing
-      - precip_type
-      - precip_intensity
-      - precip_probability
-      - temperature
-      - wind_speed
-      - cloud_cover
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
-      - temperature_max
-      - temperature_min
-      - precip_intensity_max
+  host_ip: !secret media
 media_player:
   - platform: samsungtv
-    host: 192.168.1.3
-camera:
-    platform: generic
-    still_image_url: http://192.168.1.201:80/Streaming/channels/1/picture
-    name: front door
-    username: !secret camera_user
-    password: !secret camera_pass
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.1.1/24
-    home_interval: 10
-    exclude:
-     - 192.168.1.104
-     - 192.168.1.106
-     - 192.168.1.201
-     - 192.168.1.219
+    host: !secret samsung_tv
+notify:
+  - name: push
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_key
+
+mqtt:
+  broker: 192.168.1.104
+
+switch:
+  platform: mqtt
+  name: "Hall Light"
+  state_topic: "smartthings/Hall Light/switch"
+  command_topic: "smartthings/Hall Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+automation: !include_dir_merge_list automations/
+camera: !include cameras.yaml
+device_tracker: !include device_tracker.yaml
+sensor: !include sensors.yaml

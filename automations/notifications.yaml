@@ -1,0 +1,23 @@
+- alias: 'Internet Failure'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.internet_connection
+      to: 'DOWN'
+      for:
+        minutes: 5
+  action: 
+    - service: notify.push
+      data:
+        message: "Internet connection is DOWN"
+
+- alias: 'Internet Restored'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.internet_connection
+      to: 'UP'
+  action: 
+    - service: notify.push
+      data:
+        message: "Internet connection is restored"

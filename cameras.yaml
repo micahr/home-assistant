@@ -1,0 +1,10 @@
+- platform: generic
+  still_image_url: !secret front_camera_url
+  name: front door
+  username: !secret camera_user
+  password: !secret camera_pass
+#- platform: generic
+#  still_image_url: !secret garage_url
+#  name: garage
+#  username: !secret camera_user
+#  password: !secret camera_pass

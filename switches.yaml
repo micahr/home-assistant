@@ -1,0 +1,77 @@
+- platform: mqtt
+  name: "Hall Light"
+  state_topic: "smartthings/Hall Light/switch"
+  command_topic: "smartthings/Hall Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Counter Lights"
+  state_topic: "smartthings/Counter Lights/switch"
+  command_topic: "smartthings/Counter Lights/switch"
+  brightness_state_topic: "smartthings/Counter Lights/level"
+  brightness_command_topic: "smartthings/Counter Lights/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Living Room Light"
+  state_topic: "smartthings/Living Room Light/switch"
+  command_topic: "smartthings/Living Room Light/switch"
+  brightness_state_topic: "smartthings/Living Room Light/level"
+  brightness_command_topic: "smartthings/Living Room Light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Second Bedroom Light"
+  state_topic: "smartthings/Second Bedroom Light/switch"
+  command_topic: "smartthings/Second Bedroom Light/switch"
+  brightness_state_topic: "smartthings/Second Bedroom Light/level"
+  brightness_command_topic: "smartthings/Second Bedroom Light/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Atrium Lights"
+  state_topic: "smartthings/Atrium Lights/switch"
+  command_topic: "smartthings/Atrium Lights/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Kitchen Light"
+  state_topic: "smartthings/Kitchen Light/switch"
+  command_topic: "smartthings/Kitchen Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom Light"
+  state_topic: "smartthings/Master Bedroom Light/switch"
+  command_topic: "smartthings/Master Bedroom Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Second Bedroom Switch"
+  state_topic: "smartthings/Second Bedroom Switch/switch"
+  command_topic: "smartthings/Second Bedroom Switch/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/switch"
+  command_topic: "smartthings/Front Door/switch"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

@@ -39,18 +39,20 @@ notify:
     user_key: !secret pushover_user_key
 
 mqtt:
-  broker: 192.168.1.104
+  broker: !secret media
 
-switch:
-  platform: mqtt
-  name: "Hall Light"
-  state_topic: "smartthings/Hall Light/switch"
-  command_topic: "smartthings/Hall Light/switch"
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
+binary_sensor:
+  - platform: mqtt
+    state_topic: smartthings/Front Door Sensor/contact
+    name: "Front Door Sensor"
+    sensor_class: opening
+  - platform: mqtt
+    state_topic: smartthings/Atrium Motion sensor/motion
+    name: "Atrium Motion Sensor"
+    sensor_class: motion
 
 automation: !include_dir_merge_list automations/
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 sensor: !include sensors.yaml
+switch: !include switches.yaml

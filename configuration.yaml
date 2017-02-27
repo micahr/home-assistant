@@ -12,6 +12,7 @@ homeassistant:
   time_zone: America/Los_Angeles
 
 # Enables the frontend
+config:
 frontend:
 http:
   api_password: !secret api_password
@@ -29,27 +30,13 @@ nest:
 emulated_hue:
   type: alexa
   host_ip: !secret media
-media_player:
-  - platform: samsungtv
-    host: !secret samsung_tv
 notify:
   - name: push
     platform: pushover
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
-
 mqtt:
   broker: !secret media
-
-binary_sensor:
-  - platform: mqtt
-    state_topic: smartthings/Front Door Sensor/contact
-    name: "Front Door Sensor"
-    sensor_class: opening
-  - platform: mqtt
-    state_topic: smartthings/Atrium Motion sensor/motion
-    name: "Atrium Motion Sensor"
-    sensor_class: motion
 
 automation: !include_dir_merge_list automations/
 camera: !include cameras.yaml

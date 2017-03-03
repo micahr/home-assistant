@@ -6,11 +6,38 @@ weather:
     - sensor.dark_sky_precip_probability
     - sensor.dark_sky_summary
     - sensor.dark_sky_temperature
+people:
+  name: People
+  entities:
+    - device_tracker.androiddc7d7209c3c87b75
+    - device_tracker.ac3743a08792
+    - device_tracker.lgmlmicah
+    - device_tracker.at5
+    - device_tracker.allysontmacbookpro2
+atrium:
+  name: Atrium
+  entities:
+    - sensor.atrium_motion_sensor
+    - switch.atrium_lights
+
 front:
   name: Front
   entities:
     - sensor.front_door_sensor
     - switch.front_door
+environment:
+  name: Environment
+  entities:
+    - climate.hallway
+    - sensor.hallway_thermostat_humidity
+    - sensor.hallway_thermostat_hvac_state
+    - sensor.hallway_thermostat_operation_mode
+    - sensor.hallway_thermostat_target
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_nest_protect_smoke_status
+    - sensor.hallway_nest_protect_co_status
+    - sensor.hallway_nest_protect_battery_health
+    - binary_sensor.hallway_nest_protect_online
 system:
   name: System
   entities:
@@ -19,11 +46,3 @@ system:
     - sensor.transmission_status
     - sensor.transmission_up_speed
     - updater.updater
-people:
-  name: People
-  entities:
-    - device_tracker.at5
-    - device_tracker.androiddc7d7209c3c87b75
-    - device_tracker.allysontmacbookpro2
-    - device_tracker.ac3743a08792
-    - device_tracker.lgmlmicah

@@ -1,0 +1,29 @@
+weather:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+front:
+  name: Front
+  entities:
+    - sensor.front_door_sensor
+    - switch.front_door
+system:
+  name: System
+  entities:
+    - sensor.internet_connection
+    - sensor.transmission_down_speed
+    - sensor.transmission_status
+    - sensor.transmission_up_speed
+    - updater.updater
+people:
+  name: People
+  entities:
+    - device_tracker.at5
+    - device_tracker.androiddc7d7209c3c87b75
+    - device_tracker.allysontmacbookpro2
+    - device_tracker.ac3743a08792
+    - device_tracker.lgmlmicah

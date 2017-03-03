@@ -1,7 +1,7 @@
 - platform: command_line
   name: Internet Connection
   sensor_class: connectivity
-  command: ping -q -c 1 -W 1 google.com > /dev/null 2>&1 && echo UP || echo DOWN
+  command: ping -q -c 1 -W 1 netflix.com > /dev/null 2>&1 && echo UP || echo DOWN
   scan_interval: 120
 
 - platform: darksky
@@ -9,16 +9,8 @@
   monitored_conditions:
     - summary
     - precip_type
-    - precip_intensity
     - precip_probability
     - temperature
-    - wind_speed
-    - cloud_cover
-    - minutely_summary
-    - hourly_summary
-    - daily_summary
-    - temperature_max
-    - temperature_min
 
 # - platform: fastdotcom
  

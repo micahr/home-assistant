@@ -1,0 +1,6 @@
+- name: Evening Lights
+  entities:
+    switch.kitchen_light:
+      state: on
+    switch.living_room_light:
+      state: on

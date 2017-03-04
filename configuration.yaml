@@ -43,6 +43,7 @@ digital_ocean:
   access_token: !secret do_token
 
 group: !include groups.yaml
+scene: !include scenes.yaml
 automation: !include_dir_merge_list automations/
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml

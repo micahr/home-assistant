@@ -36,13 +36,22 @@
   payload_off: "off"
   retain: true
 
-- platform: mqtt
-  name: "Atrium Lights"
-  state_topic: "smartthings/Atrium Lights/switch"
-  command_topic: "smartthings/Atrium Lights/switch"
-  payload_on: "on"
-  payload_off: "off"
-  retain: true
+#- platform: mqtt
+#  name: "Atrium Lights"
+#  state_topic: "smartthings/Atrium Lights/switch"
+#  command_topic: "smartthings/Atrium Lights/switch"
+#  payload_on: "on"
+#  payload_off: "off"
+#  retain: true
+
+- platform: command_line
+  switches:
+    atrium:
+      command_on: "/usr/bin/curl -X GET http://atrium/led/1"
+      command_off: "/usr/bin/curl -X GET http://atrium/led/0"
+      command_state: "/usr/bin/curl -X GET http://atrium/led"
+      value_template: '{{ value == "status: 1" }}'
+      friendly_name: Atrium Lights
 
 - platform: mqtt
   name: "Kitchen Light"

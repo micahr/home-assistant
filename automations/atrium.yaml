@@ -1,0 +1,37 @@
+- alias: 'Atrium Lights On'
+  trigger:
+    - platform: state
+      entity_id: sensor.front_door_sensor
+      state: 'open'
+    - platform: state
+      entity_id: sensor.atrium_motion_sensor
+      state: 'active'
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: '00:45:00' 
+      - condition: sun
+        after: sunset
+        after_offset: '-00:45:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.atrium_lights
+- alias: 'Atrium Lights Off'
+  trigger:
+    - platform: state
+      entity_id: sensor.front_door_sensor
+      state: 'closed'
+    - platform: state
+      entity_id: sensor.atrium_motion_sensor
+      state: 'inactive'
+  condition:
+    - condition: sun
+      before: sunrise
+      after: sunset
+      after_offset: '-00:45:00'
+      before_offset: '00:45:00' 
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.atrium_lights 

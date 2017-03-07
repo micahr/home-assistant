@@ -46,7 +46,7 @@
 
 - platform: command_line
   switches:
-    atrium:
+    atrium_lights:
       command_on: "/usr/bin/curl -X GET http://atrium/led/1"
       command_off: "/usr/bin/curl -X GET http://atrium/led/0"
       command_state: "/usr/bin/curl -X GET http://atrium/led"

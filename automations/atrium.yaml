@@ -7,14 +7,14 @@
       entity_id: sensor.atrium_motion_sensor
       state: 'active'
   condition:
-    condition: and
-    conditions:
-      - condition: sun
-        before: sunrise
-        before_offset: '00:45:00' 
-      - condition: sun
-        after: sunset
-        after_offset: '-00:45:00'
+     condition: or
+     conditions:
+       - condition: sun
+         after: sunset
+         after_offset: '-00:45:00'
+       - condition: sun
+         before: sunrise
+         before_offset: '00:45:00'
   action:
     service: homeassistant.turn_on
     entity_id: switch.atrium_lights
@@ -23,15 +23,22 @@
     - platform: state
       entity_id: sensor.front_door_sensor
       state: 'closed'
+      for:
+        minutes: 5
     - platform: state
       entity_id: sensor.atrium_motion_sensor
       state: 'inactive'
+      for:
+        minutes: 5
   condition:
-    - condition: sun
-      before: sunrise
-      after: sunset
-      after_offset: '-00:45:00'
-      before_offset: '00:45:00' 
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: '-00:45:00'
+      - condition: sun
+        before: sunrise
+        before_offset: '00:51:00'
   action:
     service: homeassistant.turn_off
     entity_id: switch.atrium_lights 

@@ -55,3 +55,21 @@
   action:
     service: scene.turn_on
     entity_id: scene.evening_lights
+
+- alias: 'Second Bedroom Light On'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_switch
+    state: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.second_bedroom_light
+
+- alias: 'Second Bedroom Light Off'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_switch
+    state: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.second_bedroom_light

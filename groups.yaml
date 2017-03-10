@@ -1,19 +1,3 @@
-weather:
-  name: Weather
-  entities:
-    - sun.sun
-    - sensor.dark_sky_precip
-    - sensor.dark_sky_precip_probability
-    - sensor.dark_sky_summary
-    - sensor.dark_sky_temperature
-people:
-  name: People
-  entities:
-    - device_tracker.androiddc7d7209c3c87b75
-    - device_tracker.ac3743a08792
-    - device_tracker.lgmlmicah
-    - device_tracker.at5
-    - device_tracker.allysontmacbookpro2
 atrium:
   name: Atrium
   entities:
@@ -24,7 +8,27 @@ front:
   name: Front
   entities:
     - sensor.front_door_sensor
+    - sensor.garage_door
     - switch.front_door
+
+weather:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+
+people:
+  name: People
+  entities:
+    - device_tracker.androiddc7d7209c3c87b75
+    - device_tracker.ac3743a08792
+    - device_tracker.lgmlmicah
+    - device_tracker.at5
+    - device_tracker.allysontmacbookpro2
+
 environment:
   name: Environment
   entities:

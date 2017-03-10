@@ -34,3 +34,8 @@
   sensor_class: motion
   retain: true
 
+- platform: mqtt
+  state_topic: smartthings/Garage Door/contact
+  name: "Garage Door"
+  sensor_class: opening
+  retain: true

@@ -15,49 +15,64 @@ room_view:
   entities: group.rooms
 
 Rooms:
+  control: hidden
   entities:
     - group.living_room
+    - group.kitchen
     - group.master_bedroom
     - group.second_bedroom
     - group.atrium
     - group.front
     - camera.front_door
 
-atrium:
-  name: Atrium
+Atrium:
   entities:
     - sensor.atrium_motion_sensor
     - switch.atrium_lights
 
-living_room:
-  name: Living Room
+Living Room:
   entities:
-    - switch.living_room_lights
+    - switch.living_room_light
     - scene.evening_lights
 
-front:
-  name: Front
+Kitchen:
+  entities:
+    - switch.kitchen_light
+
+Front:
   entities:
     - sensor.front_door_sensor
     - sensor.garage_door
     - switch.front_door
 
-master_bedroom:
-  name: Master Bedroom
+Master Bedroom:
   icon: mdi:hotel
-  control: hidden
   entities:
     - switch.master_bedroom_light
 
-second_bedroom:
-  name: Second Bedroom
+Second Bedroom:
   icon: mdi:baby
-  control: hidden
   entities:
     - switch.second_bedroom_switch
     - switch.second_bedroom_light
     - scene.luca_bed_time
     - scene.nap_time
+
+media_view:
+  view: yes
+  icon: mdi:movie
+  entities:
+    - media_player.roku_3
+    - media_player.roku_4
+    - media_player.icast
+
+people_view:
+  view: yes
+  icon: mdi:responsive
+  entities: group.people, group.laptops
+
+People: device_tracker.androiddc7d7209c3c87b75, device_tracker.ac3743a08792
+
 
 weather_view:
   icon: mdi:weather-partlycloudy
@@ -73,15 +88,7 @@ Weather:
     - sensor.dark_sky_summary
     - sensor.dark_sky_temperature
 
-people_view:
-  view: yes
-  icon: mdi:responsive
-  entities: group.people, group.laptops
-
-People: device_tracker.androiddc7d7209c3c87b75, device_tracker.ac3743a08792
-
-laptops:
-  name: Laptops
+Laptops:
   icon: mdi:laptop
   entities:
     - device_tracker.lgmlmicah

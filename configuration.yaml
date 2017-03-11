@@ -38,6 +38,11 @@ notify:
     user_key: !secret pushover_user_key
 mqtt:
   broker: !secret media
+media_player:
+  - platform: cast
+    host: chromecast
+  - platform: roku
+  - platform: plex
 
 digital_ocean:
   access_token: !secret do_token

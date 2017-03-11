@@ -13,6 +13,8 @@
     - temperature
 
 # - platform: fastdotcom
+
+- platform: plex
  
 - platform: transmission
   host: !secret media

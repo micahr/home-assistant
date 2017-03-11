@@ -4,3 +4,15 @@
       state: on
     switch.living_room_light:
       state: on
+
+- name: Nap Time
+  entites:
+    switch.second_bedroom_switch:
+      state: on
+
+- name: Luca Bed Time
+  entities:
+    switch.second_bedroom_switch:
+      state: on
+    switch.second_bedroom_light:
+      state: on

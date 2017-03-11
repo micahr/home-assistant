@@ -6,6 +6,8 @@ default_view:
     - camera.front_door
     - group.weather
     - scene.evening_lights
+    - scene.luca_bed_time
+    - scene.nap_time
 
 room_view:
   view: yes
@@ -31,6 +33,7 @@ living_room:
   name: Living Room
   entities:
     - switch.living_room_lights
+    - scene.evening_lights
 
 front:
   name: Front
@@ -53,6 +56,8 @@ second_bedroom:
   entities:
     - switch.second_bedroom_switch
     - switch.second_bedroom_light
+    - scene.luca_bed_time
+    - scene.nap_time
 
 weather_view:
   icon: mdi:weather-partlycloudy

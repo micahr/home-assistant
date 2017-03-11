@@ -14,3 +14,9 @@ media_player.roku_3:
   friendly_name: Master Bedroom Roku
 media_player.icast:
   friendly_name: Living Room Chromecast
+group.all_devices:
+  hidden: false
+group.all_automations:
+  hidden: false
+group.all_switches:
+  hidden: false

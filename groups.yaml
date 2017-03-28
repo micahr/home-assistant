@@ -4,6 +4,7 @@ default_view:
   entities:
     - group.rooms
     - camera.front_door
+    - camera.garage
     - group.weather
     - scene.evening_lights
     - scene.luca_bed_time
@@ -24,6 +25,7 @@ Rooms:
     - group.atrium
     - group.front
     - camera.front_door
+    - camera.garage
 
 Atrium:
   entities:

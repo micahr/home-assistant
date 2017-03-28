@@ -38,3 +38,28 @@
     service: notify.push
     data:
       message: "Garage Door Left Open"
+
+- alias: 'On Backup Power'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: sensor.ups_status_data
+      to: 'OB'
+      for:
+        minutes: 1
+  action:
+    - service: notify.push
+      data: 
+        message: "On Battery Power!"
+
+- alias: 'On Normal Power'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: sensor.ups_status_data
+    to: 'LB'
+    from: 'OB'
+  action:
+    service: notify.push
+    data:
+      message: "Back on Normal Power"

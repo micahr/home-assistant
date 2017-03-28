@@ -1,7 +1,7 @@
 - platform: command_line
   name: Internet Connection
   sensor_class: connectivity
-  command: ping -q -c 1 -W 1 netflix.com > /dev/null 2>&1 && echo UP || echo DOWN
+  command: ping -q -c 1 -W 1 google.com > /dev/null 2>&1 && echo UP || echo DOWN
   scan_interval: 120
 
 - platform: darksky
@@ -17,7 +17,7 @@
 - platform: plex
  
 - platform: transmission
-  host: !secret media
+  host: !secret synology
   port: 9091
   monitored_variables:
     - 'current_status'
@@ -41,3 +41,15 @@
   name: "Garage Door"
   sensor_class: opening
   retain: true
+
+- platform: nut
+  name: UPS
+  host: !secret synology
+  username: !secret ups_username
+  password: !secret ups_password
+  resources:
+    - ups.load
+    - ups.status
+    - ups.realpower.nominal
+    - input.voltage
+    - battery.runtime

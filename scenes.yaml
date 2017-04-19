@@ -1,18 +1,38 @@
 - name: Evening Lights
   entities:
-    switch.kitchen_light:
-      state: on
-    switch.living_room_light:
-      state: on
+      switch.kitchen_light:
+        state: on
+      switch.living_room_light:
+        state: on
 
 - name: Nap Time
-  entites:
-    switch.second_bedroom_switch:
-      state: on
-
-- name: Luca Bed Time
   entities:
-    switch.second_bedroom_switch:
-      state: on
-    switch.second_bedroom_light:
-      state: on
+      switch.second_bedroom_switch:
+        state: on
+
+- name: Luca Bed Time - Cool
+  entities:
+      switch.second_bedroom_switch:
+        state: on
+      switch.second_bedroom_light:
+        state: on
+      switch.ac_on_at_76_auto:
+        state: on
+
+- name: Luca Bed Time - Heat
+  entities:
+      switch.second_bedroom_switch:
+        state: on
+      switch.second_bedroom_light:
+        state: on
+      switch.heat_on_at_68_auto:
+        state: on
+
+- name: Luca Bed Time - Auto
+  entities:
+      switch.second_bedroom_switch:
+        state: on
+      switch.second_bedroom_light:
+        state: on
+      switch.full_auto_at_75:
+        state: on

@@ -12,6 +12,7 @@
   password: !secret unifi_password
   track_new_devices: false
   interval_seconds: 10
+  verify_ssl: False
   exclude:
    - !secret media
    - !secret synology

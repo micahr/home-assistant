@@ -42,9 +42,15 @@
 
 - alias: 'Living and Kitchen On'
   trigger:
-    platform: sun
-    event: sunset
-    offset: '-01:00:00'
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    - platform: state
+      entity_id: sensor.garage_door
+      state: 'open'
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      above: 80
   condition:
     - condition: state
       entity_id: group.people

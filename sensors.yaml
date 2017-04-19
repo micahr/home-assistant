@@ -11,6 +11,7 @@
     - precip_type
     - precip_probability
     - temperature
+    - cloud_cover
 
 # - platform: fastdotcom
 

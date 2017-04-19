@@ -39,7 +39,6 @@ mqtt:
   broker: !secret media
 media_player:
   - platform: cast
-    host: chromecast
   - platform: roku
   - platform: plex
 
@@ -48,6 +47,7 @@ digital_ocean:
 
 group: !include groups.yaml
 scene: !include scenes.yaml
+script: !include_dir_named scripts/
 automation: !include_dir_merge_list automations/
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml

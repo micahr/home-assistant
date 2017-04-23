@@ -95,3 +95,23 @@
   action:
     service: homeassistant.turn_off
     entity_id: switch.second_bedroom_light
+
+- alias: 'Second Bedroom Switch On'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_light
+    from: 'off'
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.second_bedroom_switch
+
+- alias: 'Second Bedroom Switch Off'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_light
+    from: 'on'
+    to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.second_bedroom_switch

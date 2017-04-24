@@ -2,7 +2,7 @@
   entities:
       switch.kitchen_light:
         state: on
-      switch.living_room_light:
+      light.living_room_light:
         state: on
 
 - name: Nap Time
@@ -14,7 +14,7 @@
   entities:
       switch.second_bedroom_switch:
         state: on
-      switch.second_bedroom_light:
+      light.second_bedroom_light:
         state: on
       switch.ac_on_at_76_auto:
         state: on
@@ -23,7 +23,7 @@
   entities:
       switch.second_bedroom_switch:
         state: on
-      switch.second_bedroom_light:
+      light.second_bedroom_light:
         state: on
       switch.quiet_heat_at_69:
         state: on
@@ -32,7 +32,7 @@
   entities:
       switch.second_bedroom_switch:
         state: on
-      switch.second_bedroom_light:
+      light.second_bedroom_light:
         state: on
       switch.full_auto_at_75:
         state: on

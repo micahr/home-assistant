@@ -29,7 +29,7 @@
       before: '23:00:00'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.counter_lights
+    entity_id: light.counter_lights
 
 - alias: 'Counter Light Off'
   trigger:
@@ -38,7 +38,7 @@
     offset: '-01:00:00'
   action:
     service: homeassistant.turn_off
-    entity_id: switch.counter_lights 
+    entity_id: light.counter_lights 
 
 - alias: 'Living and Kitchen On'
   trigger:
@@ -84,7 +84,7 @@
     to: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.second_bedroom_light
+    entity_id: light.second_bedroom_light
 
 - alias: 'Second Bedroom Light Off'
   trigger:
@@ -94,12 +94,12 @@
     to: 'off'
   action:
     service: homeassistant.turn_off
-    entity_id: switch.second_bedroom_light
+    entity_id: light.second_bedroom_light
 
 - alias: 'Second Bedroom Switch On'
   trigger:
     platform: state
-    entity_id: switch.second_bedroom_light
+    entity_id: light.second_bedroom_light
     from: 'off'
     to: 'on'
     for:
@@ -111,7 +111,7 @@
 - alias: 'Second Bedroom Switch Off'
   trigger:
     platform: state
-    entity_id: switch.second_bedroom_light
+    entity_id: light.second_bedroom_light
     from: 'on'
     to: 'off'
     for:

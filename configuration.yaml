@@ -30,6 +30,9 @@ nest:
   client_secret: !secret nest_client_secret
 emulated_hue:
   host_ip: !secret media
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_key
 notify:
   - name: push
     platform: pushover
@@ -45,6 +48,7 @@ media_player:
 digital_ocean:
   access_token: !secret do_token
 
+light: !include lights.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
 script: !include_dir_named scripts/

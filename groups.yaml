@@ -34,12 +34,13 @@ Atrium:
 
 Living Room:
   entities:
-    - switch.living_room_light
+    - light.living_room_light
     - scene.evening_lights
 
 Kitchen:
   entities:
     - switch.kitchen_light
+    - light.counter_lights
 
 Front:
   entities:
@@ -51,12 +52,13 @@ Master Bedroom:
   icon: mdi:hotel
   entities:
     - switch.master_bedroom_light
+    - light.master_bathroom_light
 
 Second Bedroom:
   icon: mdi:baby
   entities:
     - switch.second_bedroom_switch
-    - switch.second_bedroom_light
+    - light.second_bedroom_light
     - scene.luca_bed_time
     - scene.nap_time
     - scene.luca_bed_time__auto
@@ -138,6 +140,7 @@ etc:
   view: yes
   icon: mdi:dots-horizontal
   entities: 
+    - group.all_lights
     - group.all_switches
     - group.all_devices
     - group.all_automations

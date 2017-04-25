@@ -15,6 +15,17 @@
 # - platform: fastdotcom
 
 - platform: plex
+
+- platform: cpuspeed
+
+- platform: systemmonitor
+  resources:
+    - type: memory_use_percent
+    - type: processor_use
+
+- platform: time_date
+  display_options:
+    - 'time'
  
 - platform: transmission
   host: !secret synology

@@ -20,6 +20,8 @@ http:
 updater:
 discovery:
 conversation:
+recorder:
+  purge_days: 7
 history:
 logbook:
 sun:
@@ -39,7 +41,10 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 mqtt:
-  broker: !secret media
+  broker: !secret hass
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+
 media_player:
   - platform: cast
   - platform: roku

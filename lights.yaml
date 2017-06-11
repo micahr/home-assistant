@@ -38,4 +38,12 @@
   payload_off: "off"
   retain: true
 
-
+- platform: mqtt_json  
+  name: "SN1 LED"  
+  state_topic: "mr/sensornode1"  
+  command_topic: "mr/sensornode1/set"  
+  brightness: true  
+  flash: true  
+  rgb: true  
+  optimistic: false  
+  qos: 0  

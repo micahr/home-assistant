@@ -148,4 +148,21 @@ etc:
     - group.all_switches
     - group.all_devices
     - group.all_automations
+    - group.multi_sensor_1_card
+    - group.multi_sensor_2_card
 
+multi_sensor_1_card:  
+  name: Multi Sensor 1
+  entities:  
+    - sensor.sn1_temperature  
+    - sensor.sn1_humidity  
+    - sensor.sn1_ldr  
+    - sensor.sn1_pir
+
+multi_sensor_2_card:  
+  name: Multi Sensor 2
+  entities:  
+    - sensor.sn2_temperature  
+    - sensor.sn2_humidity  
+    - sensor.sn2_ldr  
+    - sensor.sn2_pir  

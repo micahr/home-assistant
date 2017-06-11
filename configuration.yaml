@@ -21,7 +21,7 @@ updater:
 discovery:
 conversation:
 recorder:
-  purge_days: 7
+  purge_days: 4
 history:
 logbook:
 sun:
@@ -32,9 +32,9 @@ nest:
   client_secret: !secret nest_client_secret
 emulated_hue:
   host_ip: !secret hass
-octoprint:
-  host: !secret octoprint_host
-  api_key: !secret octoprint_key
+#octoprint:
+#  host: !secret octoprint_host
+#  api_key: !secret octoprint_key
 notify:
   - name: push
     platform: pushover
@@ -44,6 +44,9 @@ mqtt:
   broker: !secret hass
   username: !secret mqtt_user
   password: !secret mqtt_password
+#zwave:
+#  usb_path: /dev/ttyACM0
+#  config_path: ozw_config
 
 media_player:
   - platform: cast

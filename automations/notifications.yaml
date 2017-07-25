@@ -6,7 +6,7 @@
       to: 'DOWN'
       for:
         minutes: 5
-  action: 
+  action:
     - service: notify.push
       data:
         message: "Internet connection is DOWN"
@@ -17,7 +17,7 @@
     - platform: state
       entity_id: sensor.internet_connection
       to: 'UP'
-  action: 
+  action:
     - service: notify.push
       data:
         message: "Internet connection is restored"
@@ -26,7 +26,7 @@
   hide_entity: true
   trigger:
     platform: state
-    entity_id: sensor.garage_door
+    entity_id: sensor.garage_door_sensor_alarm_level_10_1
     to: 'open'
     for:
       minutes: 2
@@ -49,7 +49,7 @@
         minutes: 1
   action:
     - service: notify.push
-      data: 
+      data:
         message: "On Battery Power!"
 
 - alias: 'On Normal Power'

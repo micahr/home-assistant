@@ -29,36 +29,39 @@ Rooms:
 
 Atrium:
   entities:
-    - sensor.atrium_motion_sensor
+    - binary_sensor.atrium_motion_sensor_sensor_12_0
+    - binary_sensor.front_door_sensor_sensor_11_0
     - switch.atrium_lights
 
 Living Room:
   entities:
-    - light.living_room_light
+    - light.living_room_light_level_5_0
     - scene.evening_lights
+    - switch.living_ac_on_74_auto
+    - switch.living_heat_on_74_auto
 
 Kitchen:
   entities:
-    - switch.kitchen_light
-    - light.counter_lights
+    - switch.kitchen_light_switch_3_0
+    - light.counter_lights_level_9_0
 
 Front:
   entities:
-    - sensor.front_door_sensor
-    - sensor.garage_door
-    - switch.front_door
+    - binary_sensor.front_door_sensor_sensor_11_0
+    - binary_sensor.garage_door_sensor_sensor_10_0
+    - switch.front_door_light_switch_4_0
 
 Master Bedroom:
   icon: mdi:hotel
   entities:
-    - switch.master_bedroom_light
-    - light.master_bathroom_light
+    - switch.master_bedroom_light_switch_6_0
+    - light.master_bathroom_light_level_7_0
 
 Second Bedroom:
   icon: mdi:baby
   entities:
-    - switch.second_bedroom_switch
-    - light.second_bedroom_light
+    - switch.second_bedroom_switch_switch_13_0
+    - light.second_bedroom_light_level_14_0
     - scene.luca_bed_time
     - scene.nap_time
     - scene.luca_bed_time__auto
@@ -143,7 +146,7 @@ System:
 etc:
   view: yes
   icon: mdi:dots-horizontal
-  entities: 
+  entities:
     - group.all_lights
     - group.all_switches
     - group.all_devices
@@ -151,18 +154,18 @@ etc:
     - group.multi_sensor_1_card
     - group.multi_sensor_2_card
 
-multi_sensor_1_card:  
+multi_sensor_1_card:
   name: Multi Sensor 1
-  entities:  
-    - sensor.sn1_temperature  
-    - sensor.sn1_humidity  
-    - sensor.sn1_ldr  
+  entities:
+    - sensor.sn1_temperature
+    - sensor.sn1_humidity
+    - sensor.sn1_ldr
     - sensor.sn1_pir
 
-multi_sensor_2_card:  
+multi_sensor_2_card:
   name: Multi Sensor 2
-  entities:  
-    - sensor.sn2_temperature  
-    - sensor.sn2_humidity  
-    - sensor.sn2_ldr  
-    - sensor.sn2_pir  
+  entities:
+    - sensor.sn2_temperature
+    - sensor.sn2_humidity
+    - sensor.sn2_ldr
+    - sensor.sn2_pir

@@ -30,8 +30,6 @@ tts:
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
-emulated_hue:
-  host_ip: !secret hass
 #octoprint:
 #  host: !secret octoprint_host
 #  api_key: !secret octoprint_key
@@ -41,11 +39,11 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 mqtt:
-  broker: !secret hass
+  broker: !secret mqtt
   username: !secret mqtt_user
   password: !secret mqtt_password
-#zwave:
-#  usb_path: /dev/ttyACM0
+zwave:
+  usb_path: /dev/ttyACM0
 #  config_path: ozw_config
 
 media_player:

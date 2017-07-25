@@ -1,10 +1,10 @@
 - alias: 'Atrium Lights On'
   trigger:
     - platform: state
-      entity_id: sensor.front_door_sensor
+      entity_id: binary_sensor.front_door_sensor_sensor_11_0
       state: 'open'
     - platform: state
-      entity_id: sensor.atrium_motion_sensor
+      entity_id: binary_sensor.atrium_motion_sensor_sensor_12_0
       state: 'active'
   condition:
      condition: or
@@ -21,12 +21,12 @@
 - alias: 'Atrium Lights Off'
   trigger:
     - platform: state
-      entity_id: sensor.front_door_sensor
+      entity_id: binary_sensor.front_door_sensor_sensor_11_0
       state: 'closed'
       for:
         minutes: 5
     - platform: state
-      entity_id: sensor.atrium_motion_sensor
+      entity_id: binary_sensor.atrium_motion_sensor_sensor_12_0
       state: 'inactive'
       for:
         minutes: 5
@@ -41,4 +41,4 @@
         before_offset: '00:51:00'
   action:
     service: homeassistant.turn_off
-    entity_id: switch.atrium_lights 
+    entity_id: switch.atrium_lights

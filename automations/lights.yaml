@@ -5,7 +5,7 @@
     offset: '-00:30:00'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.front_door
+    entity_id: switch.front_door_light_switch_4_0
 
 - alias: 'Front Door Light Off'
   trigger:
@@ -14,22 +14,22 @@
     offset: '00:30:00'
   action:
     service: homeassistant.turn_off
-    entity_id: switch.front_door
+    entity_id: switch.front_door_light_switch_4_0
 
 - alias: 'Counter Light On'
   trigger:
     platform: time
-    after: '21:00:00' 
+    after: '21:00:00'
   condition:
     - condition: state
       entity_id: group.people
       state: 'home'
-    - condition: time 
+    - condition: time
       after: '21:00:00'
       before: '23:00:00'
   action:
     service: homeassistant.turn_on
-    entity_id: light.counter_lights
+    entity_id: light.counter_lights_level_9_0
 
 - alias: 'Counter Light Off'
   trigger:
@@ -38,7 +38,7 @@
     offset: '-01:00:00'
   action:
     service: homeassistant.turn_off
-    entity_id: light.counter_lights 
+    entity_id: light.counter_lights_level_9_0
 
 - alias: 'Living and Kitchen On'
   trigger:
@@ -46,7 +46,7 @@
       event: sunset
       offset: '-01:00:00'
     - platform: state
-      entity_id: sensor.garage_door
+      entity_id: binary_sensor.garage_door_sensor_sensor_10_0
       state: 'open'
     - platform: numeric_state
       entity_id: sensor.dark_sky_cloud_coverage
@@ -55,7 +55,7 @@
     - condition: state
       entity_id: group.people
       state: 'home'
-    - condition: time 
+    - condition: time
       after: '16:00:00'
       before: '23:00:00'
   action:
@@ -74,48 +74,48 @@
     - service: scene.turn_off
       entity_id: scene.evening_lights
     - service: homeassistant.turn_off
-      entity_id: switch.master_bedroom_light
+      entity_id: switch.master_bedroom_light_switch_6_0
 
 - alias: 'Second Bedroom Light On'
   trigger:
     platform: state
-    entity_id: switch.second_bedroom_switch
+    entity_id: switch.second_bedroom_switch_switch_13_0
     from: 'off'
     to: 'on'
   action:
-    service: homeassistant.turn_on
-    entity_id: light.second_bedroom_light
+    service: light.turn_on
+    entity_id: light.second_bedroom_light_level_14_0
 
 - alias: 'Second Bedroom Light Off'
   trigger:
     platform: state
-    entity_id: switch.second_bedroom_switch
+    entity_id: switch.second_bedroom_switch_switch_13_0
     from: 'on'
     to: 'off'
   action:
-    service: homeassistant.turn_off
-    entity_id: light.second_bedroom_light
+    service: light.turn_off
+    entity_id: light.second_bedroom_light_level_14_0
 
 - alias: 'Second Bedroom Switch On'
   trigger:
     platform: state
-    entity_id: light.second_bedroom_light
+    entity_id: light.second_bedroom_light_level_14_0
     from: 'off'
     to: 'on'
     for:
       seconds: 5
   action:
     service: homeassistant.turn_on
-    entity_id: switch.second_bedroom_switch
+    entity_id: switch.second_bedroom_switch_switch_13_0
 
 - alias: 'Second Bedroom Switch Off'
   trigger:
     platform: state
-    entity_id: light.second_bedroom_light
+    entity_id: light.second_bedroom_light_level_14_0
     from: 'on'
     to: 'off'
     for:
       seconds: 5
   action:
     service: homeassistant.turn_off
-    entity_id: switch.second_bedroom_switch
+    entity_id: switch.second_bedroom_switch_switch_13_0

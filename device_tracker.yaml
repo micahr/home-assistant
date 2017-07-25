@@ -8,14 +8,14 @@
   #   - !secret garage_camera
 
 - platform: unifi
-  host: !secret hass
+  host: !secret alpha
   username: !secret unifi_user
   password: !secret unifi_password
   track_new_devices: false
   interval_seconds: 10
   verify_ssl: False
   exclude:
-   - !secret hass
+   - !secret alpha
    - !secret media
    - !secret synology
    - !secret front_camera

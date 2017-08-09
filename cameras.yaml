@@ -7,3 +7,9 @@
 - platform: generic
   still_image_url: !secret front_camera_url
   name: front door
+
+- platform: generic
+  name: luca_bedroom
+  still_image_url: !secret luca_camera_url
+  username: !secret camera_user
+  password: !secret luca_camera_pass

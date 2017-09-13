@@ -1,0 +1,247 @@
+- id: 'Atrium Lights On'
+  alias: 'Atrium Lights On'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_sensor_sensor_11_0
+      state: 'open'
+    - platform: state
+      entity_id: binary_sensor.atrium_motion_sensor_sensor_12_0
+      state: 'active'
+  condition:
+     condition: or
+     conditions:
+       - condition: sun
+         after: sunset
+         after_offset: '-00:45:00'
+       - condition: sun
+         before: sunrise
+         before_offset: '00:45:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.atrium_lights
+- id: 'Atrium Lights Off'
+  alias: 'Atrium Lights Off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_sensor_sensor_11_0
+      state: 'closed'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: binary_sensor.atrium_motion_sensor_sensor_12_0
+      state: 'inactive'
+      for:
+        minutes: 5
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: '-00:45:00'
+      - condition: sun
+        before: sunrise
+        before_offset: '00:51:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.atrium_lights
+- id: 'Front Door Light On'
+  alias: 'Front Door Light On'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:30:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.front_door_light_switch_4_0
+
+- id: 'Front Door Light Off'
+  alias: 'Front Door Light Off'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '00:30:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.front_door_light_switch_4_0
+
+- id: 'Counter Light On'
+  alias: 'Counter Light On'
+  trigger:
+    platform: time
+    after: '21:00:00'
+  condition:
+    - condition: state
+      entity_id: group.people
+      state: 'home'
+    - condition: time
+      after: '21:00:00'
+      before: '23:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.counter_lights_level_9_0
+
+- id: 'Counter Light Off'
+  alias: 'Counter Light Off'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '-01:00:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.counter_lights_level_9_0
+
+- id: 'Living and Kitchen On'
+  alias: 'Living and Kitchen On'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    - platform: state
+      entity_id: binary_sensor.garage_door_sensor_sensor_10_0
+      state: 'open'
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      above: 80
+  condition:
+    - condition: state
+      entity_id: group.people
+      state: 'home'
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.evening_lights
+
+- id: 'Living and Kitchen Off'
+  alias: 'Living and Kitchen Off'
+  trigger:
+    - platform: state
+      entity_id: group.people
+      state: 'not home'
+  condition:
+    condition: sun
+    after: sunset
+  action:
+    - service: scene.turn_off
+      entity_id: scene.evening_lights
+    - service: homeassistant.turn_off
+      entity_id: switch.master_bedroom_light_switch_6_0
+
+- id: 'Second Bedroom Light On'
+  alias: 'Second Bedroom Light On'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_switch_switch_13_0
+    from: 'off'
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.second_bedroom_light_level_14_0
+
+- id: 'Second Bedroom Light Off'
+  alias: 'Second Bedroom Light Off'
+  trigger:
+    platform: state
+    entity_id: switch.second_bedroom_switch_switch_13_0
+    from: 'on'
+    to: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.second_bedroom_light_level_14_0
+
+- id: 'Second Bedroom Switch On'
+  alias: 'Second Bedroom Switch On'
+  trigger:
+    platform: state
+    entity_id: light.second_bedroom_light_level_14_0
+    from: 'off'
+    to: 'on'
+    for:
+      seconds: 5
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.second_bedroom_switch_switch_13_0
+
+- id: 'Second Bedroom Switch Off'
+  alias: 'Second Bedroom Switch Off'
+  trigger:
+    platform: state
+    entity_id: light.second_bedroom_light_level_14_0
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 5
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.second_bedroom_switch_switch_13_0
+- id: 'Internet Failure'
+  alias: 'Internet Failure'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.internet_connection
+      to: 'DOWN'
+      for:
+        minutes: 5
+  action:
+    - service: notify.push
+      data:
+        message: "Internet connection is DOWN"
+
+- id: 'Internet Restored'
+  alias: 'Internet Restored'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.internet_connection
+      to: 'UP'
+  action:
+    - service: notify.push
+      data:
+        message: "Internet connection is restored"
+
+- id: 'Garage Door Left Open'
+  alias: 'Garage Door Left Open'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: sensor.garage_door_sensor_alarm_level_10_1
+    to: 'open'
+    for:
+      minutes: 2
+  condition:
+    condition: state
+    entity_id: group.people
+    state: 'not home'
+  action:
+    service: notify.push
+    data:
+      message: "Garage Door Left Open"
+
+- id: 'On Backup Power'
+  alias: 'On Backup Power'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: sensor.ups_status_data
+      to: 'OB'
+      for:
+        minutes: 1
+  action:
+    - service: notify.push
+      data:
+        message: "On Battery Power!"
+
+- id: 'On Normal Power'
+  alias: 'On Normal Power'
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: sensor.ups_status_data
+    to: 'LB'
+    from: 'OB'
+  action:
+    service: notify.push
+    data:
+      message: "Back on Normal Power"

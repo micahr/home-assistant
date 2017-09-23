@@ -22,3 +22,11 @@ group.all_switches:
   hidden: false
 group.all_lights:
   hidden: false
+group.front:
+  entity_id:
+  - sensor.front_door_sensor
+  - sensor.left_garage_door_sensor
+  - sensor.garage_door_sensor
+  - switch.front_door_light_switch
+light.luca_bedroom_underlights:
+  friendly_name: Luca Bedroom Under Cabinet Lights

@@ -10,8 +10,10 @@
 *.log.*
 *.db-journal
 *.pickle
+*.bak
 OZW_Log.txt
 home-assistant_v2.db
+*.db.*
 lib
 deps
 tts

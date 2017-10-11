@@ -59,18 +59,20 @@
 - id: Counter Light On
   alias: Counter Light On
   trigger:
+  - at: '21:00:00'
     platform: time
-    at: '21:00:00'
   condition:
   - condition: state
     entity_id: group.people
     state: home
-  - condition: time
-    after: '21:00:00'
+  - after: '21:00:00'
     before: '23:00:00'
+    condition: time
   action:
-    service: homeassistant.turn_on
+  - data:
+      entity_id: light.counter_lights_level
     entity_id: light.counter_lights_level
+    service: homeassistant.turn_on
 - id: Counter Light Off
   alias: Counter Light Off
   trigger:
@@ -85,83 +87,97 @@
 - id: Living and Kitchen On
   alias: Living and Kitchen On
   trigger:
-  - platform: sun
-    event: sunset
+  - event: sunset
     offset: -01:00:00
-  - platform: state
-    entity_id: sensor.garage_door_sensor
+    platform: sun
+  - entity_id: sensor.garage_door_sensor
+    platform: state
     to: open
-  - platform: numeric_state
+  - above: 80
     entity_id: sensor.dark_sky_cloud_coverage
-    above: 80
+    platform: numeric_state
   condition:
   - condition: state
     entity_id: group.people
     state: home
-  - condition: time
-    after: '16:00:00'
+  - after: '16:00:00'
     before: '23:00:00'
+    condition: time
   action:
-    service: scene.turn_on
+  - data:
+      entity_id: scene.evening_lights
     entity_id: scene.evening_lights
+    service: scene.turn_on
 - id: Living and Kitchen Off
   alias: Living and Kitchen Off
   trigger:
-  - platform: state
-    entity_id: group.people
+  - entity_id: group.people
+    platform: state
     to: not home
   condition:
+  - after: sunset
     condition: sun
-    after: sunset
   action:
-  - service: scene.turn_off
+  - data:
+      entity_id: scene.evening_lights
     entity_id: scene.evening_lights
-  - service: homeassistant.turn_off
+    service: scene.turn_off
+  - data:
+      entity_id: switch.master_bedroom_light_switch
     entity_id: switch.master_bedroom_light_switch
+    service: homeassistant.turn_off
 - id: Second Bedroom Light On
   alias: Second Bedroom Light On
   trigger:
-    platform: state
-    entity_id: switch.second_bedroom_switch_switch
+  - entity_id: switch.second_bedroom_switch_switch
     from: 'off'
+    platform: state
     to: 'on'
   action:
-    service: light.turn_on
+  - data:
+      entity_id: light.second_bedroom_light_level
     entity_id: light.second_bedroom_light_level
+    service: light.turn_on
 - id: Second Bedroom Light Off
   alias: Second Bedroom Light Off
   trigger:
-    platform: state
-    entity_id: switch.second_bedroom_switch_switch
+  - entity_id: switch.second_bedroom_switch_switch
     from: 'on'
+    platform: state
     to: 'off'
   action:
-    service: light.turn_off
+  - data:
+      entity_id: light.second_bedroom_light
     entity_id: light.second_bedroom_light_level
+    service: light.turn_off
 - id: Second Bedroom Switch On
   alias: Second Bedroom Switch On
   trigger:
-    platform: state
-    entity_id: light.second_bedroom_light_level
-    from: 'off'
-    to: 'on'
+  - entity_id: light.second_bedroom_light_level
     for:
       seconds: 5
+    from: 'off'
+    platform: state
+    to: 'on'
   action:
-    service: homeassistant.turn_on
+  - data:
+      entity_id: switch.second_bedroom_switch_switch
     entity_id: switch.second_bedroom_switch_switch
+    service: homeassistant.turn_on
 - id: Second Bedroom Switch Off
   alias: Second Bedroom Switch Off
   trigger:
-    platform: state
-    entity_id: light.second_bedroom_light_level
-    from: 'on'
-    to: 'off'
+  - entity_id: light.second_bedroom_light_level
     for:
       seconds: 5
+    from: 'on'
+    platform: state
+    to: 'off'
   action:
-    service: homeassistant.turn_off
+  - data:
+      entity_id: switch.second_bedroom_switch_switch
     entity_id: switch.second_bedroom_switch_switch
+    service: homeassistant.turn_off
 - id: Internet Failure
   alias: Internet Failure
   hide_entity: true

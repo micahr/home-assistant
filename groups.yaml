@@ -89,8 +89,11 @@ people_view:
   icon: mdi:responsive
   entities: group.people, group.laptops
 
-People: device_tracker.androiddc7d7209c3c87b75, device_tracker.ac3743a08792
-
+People:
+  entities:
+    - device_tracker.android1229ef6e66bd7270
+    - device_tracker.android36d685e2767457e9
+    - device_tracker.android718ecc764178a801
 
 weather_view:
   icon: mdi:weather-partlycloudy
@@ -113,6 +116,7 @@ Laptops:
     - device_tracker.lgmlmicah
     - device_tracker.at5
     - device_tracker.allysontmacbookpro2
+    - device_tracker.allysontmacbookpro
 
 environment_view:
   view: yes

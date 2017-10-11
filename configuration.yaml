@@ -43,7 +43,7 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_password
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/ttyACM1
   #new_entity_id: false
 #  config_path: ozw_config
 
@@ -54,6 +54,19 @@ media_player:
 
 digital_ocean:
   access_token: !secret do_token
+
+binary_sensor:
+  - platform: hikvision
+    name: Luca Bedroom Camera
+    host: !secret luca_camera
+    username: !secret camera_user
+    password: !secret luca_camera_pass
+  - platform: hikvision
+    name: Garage Door Camera
+    host: !secret garage_camera
+    username: !secret camera_user
+    password: !secret camera_pass
+
 
 light: !include lights.yaml
 group: !include groups.yaml

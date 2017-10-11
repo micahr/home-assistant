@@ -1,0 +1,3 @@
+zwave.master_bathroom_light:
+  ignored: false
+  polling_intensity: 2
